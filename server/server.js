@@ -1,6 +1,9 @@
 import express from 'express';
 import cors from 'cors';
+import * as dotenv from 'dotenv';
 import { Configuration, OpenAIApi } from 'openai';
+
+dotenv.config()
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -8,9 +11,9 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+const app = express()
+app.use(cors())
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.status(200).send({
@@ -42,6 +45,6 @@ app.post('/', async (req, res) => {
     console.error(error);
     res.status(500).send('Something went wrong');
   }
-});
+})
 
 app.listen(3222, () => console.log('Chatbot server started on http://localhost:3222'));

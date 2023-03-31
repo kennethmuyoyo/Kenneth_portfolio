@@ -4,7 +4,7 @@
   "description": "Kenneth's portfolio",
   "type": "module",
   "scripts": {
-    "server":"nodemon server"
+    "server": "nodemon server"
   },
   "author": "kenneth muyoyo",
   "license": "ISC",
